@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const userroute = require("./routes/user.js");
 const authroute = require("./routes/auth.js");
+const productroute=require("./routes/product.js");
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -18,6 +19,7 @@ async function main() {
 app.use(express.json());
 app.use("/api/auth", authroute);
 app.use("/api/users", userroute);
+app.use("/api/products", productroute);
 
 app.listen(5000, () => {
   console.log("Backend Server running ");
